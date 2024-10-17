@@ -1,5 +1,6 @@
 .home-container {
   display: flex;
+  overflow: hidden;
   .all-movies {
     width: 75%;
     min-height: calc(100vh - 80px);
@@ -7,49 +8,81 @@
     padding: 20px 40px;
     font-family: "Roboto", sans-serif;
 
-    .top{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 15px;
-        h4{
-            text-transform: uppercase;
-            font-weight: bold;
-            border-left: 5px solid #ff9900;
-            padding-left: 10px;
-        }
-        .view-all {
-            cursor: pointer;
-            color: #ff9900;
-        }
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      h4 {
+        text-transform: uppercase;
+        font-weight: bold;
+        border-left: 5px solid #ff9900;
+        padding-left: 10px;
+      }
+      .view-all {
+        cursor: pointer;
+        color: #ff9900;
+      }
     }
-    .movies-thumbnail{
-        display: flex;
-        justify-content: space-between;
+    .movies-thumbnail {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
 
-        .movie{
-            .cover{
-                img{
-                    border-radius: 5px;
-                }
-            }
-            .detail{
-                width: 180px;
-            }
-            .name{
-                font-weight: bold;
-                height: 50px;
-                margin-top: 5px;
-                cursor: pointer;
-            }
+      .movie {
+        .cover {
+          img {
+            border-radius: 5px;
+          }
         }
+        .detail {
+          width: 180px;
+        }
+        .name {
+          font-weight: bold;
+          height: 50px;
+          margin-top: 5px;
+          cursor: pointer;
+        }
+        .rating {
+          color: #ff9900;
+          margin-bottom: 25px;
+        }
+      }
     }
-
   }
   .popular-movies {
     width: 25%;
     min-height: calc(100vh - 80px);
     padding: 20px 40px;
     font-family: "Roboto", sans-serif;
+
+    h4 {
+      text-transform: uppercase;
+      font-weight: bold;
+      border-left: 5px solid #ff9900;
+      padding-left: 10px;
+    }
+    .movies{
+        .movie{
+            margin-top: 30px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            .name{
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+        .view-all{
+            color: #ff9900;
+            text-align: right;
+            margin-top: 30px;
+            cursor: pointer;
+        }
+
+    }
   }
 }

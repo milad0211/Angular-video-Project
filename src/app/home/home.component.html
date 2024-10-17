@@ -1,24 +1,86 @@
 <app-header></app-header>
 <div class="home-container">
-    <div class="all-movies">
-        <div class="trending-movies">
-            <div class="top">
-                <h4>Trending Movies</h4>
-                <div class="view-all">View All</div>
-            </div>
+  <div class="all-movies">
+    <div class="trending-movies">
+      <div class="top">
+        <h4>Trending Movies</h4>
+        <div class="view-all">View All</div>
+      </div>
 
-            <div class="movies-thumbnail">
-                <div class="movie" *ngFor="let movie of trendingMovies">
-                    <div class="cover">
-                        <img [src]="movie.cover" alt="">
-                    </div>
-                    <div class="detail">
-                        <div class="name">{{movie.name}}</div>
-                        <div class="rating">{{movie.rating}}</div>
-                    </div>
-                </div>
+      <div class="movies-thumbnail">
+        <div class="movie" *ngFor="let movie of trendingMovies">
+          <div class="cover" (click)="goToMovie('trending', movie.id)">
+            <img [src]="movie.cover" alt="" />
+          </div>
+          <div class="detail">
+            <div class="name" (click)="goToMovie('trending', movie.id)">
+              {{ movie.name }}
             </div>
+            <!-- //rating component -->
+            <div class="rating">
+              <ngb-rating
+                [(rate)]="movie.rating"
+                [max]="5"
+                [readonly]="true"
+              ></ngb-rating>
+              <!-- <pre>Current Rate: {{movie.rating}}</pre> -->
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="popular-movies"></div>
+
+    <div class="theatre-movies">
+      <div class="top">
+        <h4>Popular in Theatres</h4>
+        <div class="view-all">View All</div>
+      </div>
+
+      <div class="movies-thumbnail">
+        <div class="movie" *ngFor="let movie of TheatreMovies">
+          <div class="cover" (click)="goToMovie('theatre', movie.id)">
+            <img [src]="movie.cover" alt="" />
+          </div>
+          <div class="detail">
+            <div class="name" (click)="goToMovie('theatre', movie.id)">
+              {{ movie.name }}
+            </div>
+            <!-- //rating component -->
+            <div class="rating">
+              <ngb-rating
+                [(rate)]="movie.rating"
+                [max]="5"
+                [readonly]="true"
+              ></ngb-rating>
+              <!-- <pre>Current Rate: {{movie.rating}}</pre> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popular-movies">
+    <h4>All Time Popular</h4>
+    <div class="movies">
+      <div class="movie" *ngFor="let movie of PopularMovies">
+        <!-- <div class="cover">
+              <img [src]="movie.cover" alt="" />
+            </div> -->
+        <div class="detail">
+          <div class="name"(click)="goToMovie('popular',movie.id)">{{ movie.name }}</div>
+          <!-- //rating component -->
+          <div class="rating">
+            <ngb-rating
+              [(rate)]="movie.rating"
+              [max]="5"
+              [readonly]="true"
+            ></ngb-rating>
+            <!-- <pre>Current Rate: {{movie.rating}}</pre> -->
+          </div>
+        </div>
+
+        <div class="view-all">View All</div>
+      </div>
+    </div>
+  </div>
 </div>
